@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Hyperspace by HTML5 UP</title>
+		<title>GALAITA Labs</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -45,37 +45,37 @@
 		<!-- One -->
 		<section id="one" class="wrapper style2 spotlights">
 			<section>
-				<a href="#" class="image"><img src="images/pic01.jpg" alt="Builders in action" data-position="center center" /></a>
+				<a href="#" class="image"><img src="images/macbook-django.jpg" alt="Builders in action" data-position="center center" /></a>
 				<div class="content">
 					<div class="inner">
 						<h2>Builders in Action</h2>
 						<p>We’re a team of builders, thinkers, and explorers passionate about <strong>AI, automation, and next-gen software</strong>. Our mission is to turn complex tech challenges into <strong>practical, high-performance solutions</strong> for startups and enterprises alike.</p>
 						<ul class="actions">
-							<li><a href="generic.html" class="button">Learn more</a></li>
+							<li><a href="mission.html" class="button">Learn more</a></li>
 						</ul>
 					</div>
 				</div>
 			</section>
 			<section>
-				<a href="#" class="image"><img src="images/pic02.jpg" alt="Intelligent automation" data-position="top center" /></a>
+				<a href="#" class="image"><img src="images/e-commerce-8656646_640.jpg" alt="Intelligent automation" data-position="top center" /></a>
 				<div class="content">
 					<div class="inner">
 						<h2>Intelligent Automation</h2>
 						<p>We design <strong>AI-powered systems</strong> that streamline workflows, improve decision-making, and unlock new levels of <strong>efficiency and intelligence</strong> for your business.</p>
 						<ul class="actions">
-							<li><a href="generic.html" class="button">Learn more</a></li>
+							<li><a href="mission.html" class="button">Learn more</a></li>
 						</ul>
 					</div>
 				</div>
 			</section>
 			<section>
-				<a href="#" class="image"><img src="images/pic03.jpg" alt="Future-ready infrastructure" data-position="25% 25%" /></a>
+				<a href="#" class="image"><img src="images/abstract-cubo.jpg" alt="Future-ready infrastructure" data-position="25% 25%" /></a>
 				<div class="content">
 					<div class="inner">
 						<h2>Future-Ready Infrastructure</h2>
 						<p>From <strong>cloud-native platforms</strong> to distributed systems, we help companies <strong>rethink their software foundations</strong> so they can scale reliably and adapt to the technologies of tomorrow.</p>
 						<ul class="actions">
-							<li><a href="generic.html" class="button">Learn more</a></li>
+							<li><a href="mission.html" class="button">Learn more</a></li>
 						</ul>
 					</div>
 				</div>
@@ -119,9 +119,9 @@
 						<p>Experiment, iterate, and transform <strong>research into working products</strong> quickly.</p>
 					</section>
 				</div>
-				<ul class="actions">
+				<!-- <ul class="actions">
 					<li><a href="generic.html" class="button">Learn more</a></li>
-				</ul>
+				</ul> -->
 			</div>
 		</section>
 
@@ -129,10 +129,10 @@
 					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
 							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<p>Let’s turn ideas into intelligent, scalable software</p>
 							<div class="split style1">
 								<section>
-									<form method="post" action="#">
+									<form id="contactForm" onsubmit="return sendMail(event)">
 										<div class="fields">
 											<div class="field half">
 												<label for="name">Name</label>
@@ -148,8 +148,8 @@
 											</div>
 										</div>
 										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-										</ul>
+            								<li><button type="submit" class="button submit">Send Message</button></li>
+          								</ul>
 									</form>
 								</section>
 								<!-- <section>
@@ -190,7 +190,7 @@
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; GALAITA Labs LLC. All rights reserved.</li>
 					</ul>
 				</div>
 			</footer>
@@ -203,6 +203,41 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+  function sendMail(event) {
+    
+	event.preventDefault(); // Prevent form from reloading the page
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Simple validation
+    if (!name || !email || !message) {
+      //alert("Please fill in all fields before sending.");
+      return false;
+    }
+
+    // Basic email format check
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      //alert("Please enter a valid email address.");
+      return false;
+    }
+
+    const subject = encodeURIComponent("Message from " + name);
+    const body = encodeURIComponent(
+      "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
+    );
+
+    // Replace with your email address
+    const mailtoLink = `mailto:your_email@example.com?subject=${subject}&body=${body}`;
+
+    window.location.href = mailtoLink;
+    return false;
+  }
+</script>
 
 	</body>
 </html>
