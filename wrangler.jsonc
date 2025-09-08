@@ -1,0 +1,5 @@
+{
+  "name": "galaita-labs-public-site", // Your project name
+  "compatibility_date": "2025-09-08", // Today's date or newer
+  "pages_build_output_dir": "./"
+}
